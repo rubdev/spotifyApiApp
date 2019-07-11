@@ -6,11 +6,10 @@ import { SpotifyService } from 'src/app/services/spotify.service';
   templateUrl: './home.component.html',
   styles: []
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  constructor( private _spotiService: SpotifyService) { }
-
-  ngOnInit() {
+  constructor( private _spotiService: SpotifyService) {
+    this._spotiService.getSpainNewReleases();
   }
 
 }
