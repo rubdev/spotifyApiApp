@@ -26,3 +26,9 @@
 .fadeIn {
     animation-name: fadeIn;
 }
+
+/* Estilos globales */
+
+body {
+    background-color: #EEEEEE;
+}
