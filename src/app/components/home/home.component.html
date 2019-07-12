@@ -12,6 +12,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ cancion.name }}</h5>
                         <span *ngFor="let artista of cancion.artists" class="badge badge-pill badge-success">{{ artista.name }}</span>
+                        <a target="_blank" class="btn btn-primary btn-block mt-2" [href]="cancion.external_urls.spotify" role="button">Reproducir</a>
                     </div>
                 </div>
             </div>

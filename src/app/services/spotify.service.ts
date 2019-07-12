@@ -6,6 +6,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class SpotifyService {
 
+  token = 'BQCX1Yiu3WXZkn26mXwV_PSMN10zxJq7VoD9Jw2YbglaMqqxZJdukxdpkQGDOJcuihQi0NqR1rehgVRuseU';
+
   constructor( private clienteHttp: HttpClient) {
     console.log('Servicio Spotify listo');
   }
@@ -14,10 +16,18 @@ export class SpotifyService {
     console.log('Spotify service -> Cargando nuevos lanzamientos en España');
     // Cabecera necesaria para que funcione el token
     const headers = new HttpHeaders({
-      'Authorization': 'Bearer BQC9Yd59VRZ3Ax51frqH-a6FDftM4HWe6Gnj2YVVpAxl5G12aqfLgBdRSWNUOUWmJzyOqkIkKZr8nG4QgIg'
+      'Authorization': `Bearer ${ this.token }`
     });
     // Para hacer la petición get con el token generado
     return this.clienteHttp.get('https://api.spotify.com/v1/browse/new-releases', { headers });
+  }
+
+  getArtist( termino: string ) {
+    console.log('Spotify service -> Cargando artistas encontrados');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${ this.token }`
+    });
+    return this.clienteHttp.get(`https://api.spotify.com/v1/search?q=${ termino }&type=artist&limit=20`, { headers });
   }
 
 }

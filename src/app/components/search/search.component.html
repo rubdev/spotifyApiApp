@@ -1,1 +1,26 @@
-<p>search works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col mt-5">
+            <h1>Búsqueda de artistas</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-5">
+            <input #termino (keyup)="buscar(termino.value)" type="text" class="form-control" placeholder="Empiece a escribir para buscar coincidencias">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-5">
+            <div class="card-columns">
+                <div *ngFor="let artista of artistasEncontrados" class="card text-white bg-dark">
+                    <img class="card-img-top" [src]="artista.images[0].url" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ artista.name }}</h4>
+                        <p><b>Seguidores: </b><span class="badge badge-pill badge-success"> {{ artista.followers.total }}</span></p>
+                        <a target="_blank" class="btn btn-primary btn-block mt-2" [href]="artista.external_urls.spotify" role="button">Ver perfil de artista</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
