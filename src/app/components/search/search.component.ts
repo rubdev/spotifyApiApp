@@ -15,7 +15,7 @@ export class SearchComponent {
   buscar( termino: string ) {
     this._spotiService.getArtist( termino )
           .subscribe( (artistas: any) => {
-            this.artistasEncontrados = artistas.artists.items;
+            this.artistasEncontrados = artistas;
             console.log(this.artistasEncontrados);
           });
   }

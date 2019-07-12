@@ -13,7 +13,7 @@ export class HomeComponent {
   constructor( private _spotiService: SpotifyService) {
     this._spotiService.getSpainNewReleases()
         .subscribe( (datos: any) => {
-          this.ultimosLanzamientoESP = datos.albums.items;
+          this.ultimosLanzamientoESP = datos;
           console.log(this.ultimosLanzamientoESP);
         });
   }
